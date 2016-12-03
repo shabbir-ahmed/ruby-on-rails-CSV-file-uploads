@@ -1,0 +1,29 @@
+
+<div class="container">
+    <h1>CSV Import</h1>
+    <%= form_tag import_cookies_path, multipart: true do %>
+        <%= file_field_tag :file %>
+        <%= submit_tag "Import"%>
+    <% end %>
+    <br />
+    <table class="table-bordered">
+        <thead>
+            <th>Host</th>
+            <th>Name</th>
+            <th>Last Access</th>
+            <th>Creation</th>
+        </thead>
+
+        <tbody>
+            <% @cookie.each do |c| %>
+                <tr>
+                    <td><%= c.host_key %></td>
+                    <td><%= c.name %></td>
+                    <td><%= Time.zone.at(c.last_access_utc.to_i) %></td>
+                    <td><%= Time.zone.at(c.creation_utc.to_i) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <%= will_paginate  @cookie %>
+</div>
