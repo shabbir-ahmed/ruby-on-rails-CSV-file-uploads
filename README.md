@@ -21,4 +21,4 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Ruby on Rails <a href="https://github.com/rails">Repo</a>
