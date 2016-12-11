@@ -7,15 +7,10 @@ class CookiesController < ApplicationController
             format.json {render json: @cookie}
         end
     end
-
+	#=> Import CSV files
     def import
         Cookie.import(params[:file])
         redirect_to root_url
     end
 
-    private
-
-    # def csv_params
-    #     params.require(:cookie).permit(:file)
-    # end
 end

@@ -7,7 +7,7 @@ class HistoriesController < ApplicationController
             format.json {render json: @history}
         end
     end
-
+	#=> Import CSV files
     def import
         History.import(params[:file])
         redirect_to histories_url
